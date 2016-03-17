@@ -5,7 +5,9 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
-
+/*
+ * 后置通知
+ */
 @Aspect
 public class EmployeeAfterAspect {
 

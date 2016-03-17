@@ -24,20 +24,37 @@
 		<property name="employee" ref="employee"></property>
 	</bean>
 	
-	<!-- Configure Aspect Beans, without this Aspects advices wont execute -->
+	<!-- Configure Aspect Beans, without this Aspects advices won't execute -->
+	
+	<!-- 前置通知 -->
 	<bean name="employeeAspect" class="com.journaldev.spring.aspect.EmployeeAspect" />
+	
+	<!-- Pointcut 的方法 和 Pointcut 的重用 -->
 	<bean name="employeeAspectPointcut" class="com.journaldev.spring.aspect.EmployeeAspectPointcut" />
+	
+	<!-- JoinPoint 和 通知的参数 -->
 	<bean name="employeeAspectJoinPoint" class="com.journaldev.spring.aspect.EmployeeAspectJoinPoint" />
+	
+	<!-- 后置通知 -->
 	<bean name="employeeAfterAspect" class="com.journaldev.spring.aspect.EmployeeAfterAspect" />
+	
+	<!-- Spring 环绕通知 -->
 	<bean name="employeeAroundAspect" class="com.journaldev.spring.aspect.EmployeeAroundAspect" />
+	
+	<!-- 使用自定义的注解来实现针对性的通知 -->
 	<bean name="employeeAnnotationAspect" class="com.journaldev.spring.aspect.EmployeeAnnotationAspect" />
+	
+	<!-- Spring AOP 通过 XML 配置来实现 -->
 	<bean name="employeeXMLConfigAspect" class="com.journaldev.spring.aspect.EmployeeXMLConfigAspect" />
 	
 	<!-- Spring AOP XML Configuration -->
 	<aop:config>
 		<aop:aspect ref="employeeXMLConfigAspect" id="employeeXMLConfigAspectID" order="1">
-			<aop:pointcut expression="execution(* com.journaldev.spring.model.Employee.getName())" id="getNamePointcut"/>
-			<aop:around method="employeeAroundAdvice" pointcut-ref="getNamePointcut" arg-names="proceedingJoinPoint"/>
+			<aop:pointcut expression="execution(* com.journaldev.spring.model.Employee.getName())" 
+				id="getNamePointcut"/>
+			<aop:around method="employeeAroundAdvice" 
+				pointcut-ref="getNamePointcut" 
+				arg-names="proceedingJoinPoint"/>
 		</aop:aspect>
 	</aop:config>
 </beans>

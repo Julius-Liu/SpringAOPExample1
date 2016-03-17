@@ -4,29 +4,42 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+/*
+ * Pointcut 的方法 和 Pointcut 的重用
+ */
 @Aspect
 public class EmployeeAspectPointcut {
-
-	@Before("getNamePointcut()")
+	
+	@Before("getNamePointcut()")	
 	public void loggingAdvice(){
-		System.out.println("Executing loggingAdvice on getName()");
+		System.out.println("loggingAdvice on getName()");
 	}
 	
-	@Before("getNamePointcut()")
+	@Before("getNamePointcut()")	
 	public void secondAdvice(){
-		System.out.println("Executing secondAdvice on getName()");
+		System.out.println("secondAdvice on getName()");
 	}
 	
+	/*
+	 * 这里要先配置好一个函数名称
+	 */	
 	@Pointcut("execution(public String getName())")
-	public void getNamePointcut(){}
+	public void getNamePointcut() {
+		System.out.println("This is getNamePointcut method");
+	}
 	
 	@Before("allMethodsPointcut()")
 	public void allServiceMethodsAdvice(){
 		System.out.println("Before executing service method");
 	}
 	
-	//Pointcut to execute on all the methods of classes in a package
+	/*
+	 * 这里要先配置好一个函数名称
+	 * Pointcut to execute on all the methods of classes in a package
+	 */
 	@Pointcut("within(com.journaldev.spring.service.*)")
-	public void allMethodsPointcut(){}
+	public void allMethodsPointcut() {
+		System.out.println("This is allMethodsPointcut method");
+	}
 	
 }

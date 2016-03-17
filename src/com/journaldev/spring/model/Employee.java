@@ -11,11 +11,11 @@ public class Employee {
 	}
 
 	@Loggable
-	public void setName(String nm) {
-		this.name=nm;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public void throwException(){
+	public void throwException() {
 		throw new RuntimeException("Dummy Exception");
 	}
 	
