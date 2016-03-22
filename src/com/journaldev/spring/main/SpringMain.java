@@ -11,8 +11,8 @@ public class SpringMain {
 		EmployeeService employeeService = ctx.getBean("employeeService", EmployeeService.class);
 		String getNameRes = employeeService.getEmployee().getName();
 		System.out.println(getNameRes);
-		employeeService.getEmployee().setName("Pankaj");
-		employeeService.getEmployee().throwException();
+		//employeeService.getEmployee().setName("Pankaj");
+		//employeeService.getEmployee().throwException();
 		ctx.close();
 	}
 }

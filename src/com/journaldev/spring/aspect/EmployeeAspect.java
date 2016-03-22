@@ -14,7 +14,6 @@ public class EmployeeAspect {
 		System.out.println("Executing Advice on getName()");
 	}
 	
-	
 	@Before("execution(* com.journaldev.spring.service.*.get*())")
 	/*
 	 * execution(): 表示拦截方法，括号中可定义需要匹配的规则。
